@@ -82,9 +82,7 @@ const resolvers = {
       const book = await Book.find(filterObj).populate('author')
       return book
     },
-    allAuthors: () => authors.map(a => {
-        return Author.find({})
-    }),
+    allAuthors: async () => await Author.find({}),
     me: (root, args, {currentUser}) => currentUser
   },
   Author: {
